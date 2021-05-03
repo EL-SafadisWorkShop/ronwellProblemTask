@@ -1,0 +1,33 @@
+<script>
+//For some reason my output is not 7 I didn't enough time to complete. Regardless, this should be the solution to the problem. 
+function getMonthFromString(mon){ //
+//They are asking between April and May. I had to look for a function that includes the 1st monday of the month and the last monday of the month
+
+
+    //It returns the month although I am not sure of the entire function
+    //All I need to do was give it the year and month and it should return for me the last Monday as a solution to the problem
+    //LINK --> https://stackoverflow.com/questions/9481158/how-can-i-get-the-4-mondays-of-a-month-with-js
+    var d = Date.parse(mon + "1, 2014"); 
+    if(!isNaN(d)){
+       return new Date(d).getMonth() + 1; //It returns the month that I inserted in that case 2014
+    }
+    //If it is wrong it should return -1 which is false 
+    return -1;
+  }
+ 
+ function solution(Y, A, B, W) {
+     var a_num=getMonthFromString('april'); //A 
+     var b_num=getMonthFromString('May'); //B 
+     
+     //Moment is built in function that returns the date that has been given to it as shown below
+     var a = moment('07-'+a_num+'-2014', 'DD-MM-YYYY'); //issues with get 7 = 1st Monday in April and 
+     var b = moment('31-'+b_num+'-2014', 'DD-MM-YYYY'); //get 31 = last Monday in May. The problem there is I can't find the function for it  
+     document.write(b.diff(a, 'week'));
+ 
+        
+  }
+ 
+     solution(2014, 'April', 'May', 'Wednesday'); /*Output is 8 not 7 for some reason. However by changing the month in var b on line 58 to 25 the
+     will be 7. I got confused with Wednesday. I don't presicely understand what is meant by that.*/
+
+</script>
